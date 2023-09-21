@@ -1,21 +1,18 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
+def tree_to_json(node, feature_names):
+    if node is None:
+        return None
 
+    node_dict = {
+        "feature_index": node.feature_index,
+        "threshold": node.threshold,
+        "label": node.label,
+    }
 
-def split_dataset(data, labels, test_size=0.2, random_state=None):
-    """
-    Split a dataset into training and validation sets.
+    if feature_names is not None and node.feature_index is not None:
+        feature_name = feature_names[node.feature_index]
+        node_dict["feature_name"] = feature_name
 
-    Args:
-    data (array-like): The feature data.
-    labels (array-like): The corresponding labels or target values.
-    test_size (float): The proportion of the dataset to include in the validation set (default is 0.2).
-    random_state (int): Seed for random number generation (optional).
+    node_dict["left"] = tree_to_json(node.left, feature_names)
+    node_dict["right"] = tree_to_json(node.right, feature_names)
 
-    Returns:
-    tuple: A tuple containing (X_train, X_val, y_train, y_val).
-    """
-    X_train, X_val, y_train, y_val = train_test_split(
-        data, labels, test_size=test_size, random_state=random_state
-    )
-    return X_train, X_val, y_train, y_val
+    return node_dict
