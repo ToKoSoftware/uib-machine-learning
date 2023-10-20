@@ -5,7 +5,7 @@
     <option name="enabledOnSave" value="true" />
     <option name="executionMode" value="BINARY" />
     <option name="pathToExecutable" value="/opt/homebrew/bin/black" />
-    <option name="sdkUUID" value="63a5fcfd-4f58-45e6-9c40-d104f3c42855" />
+    <option name="sdkName" value="Python 3.9 (uib-machine-learning)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (uib-machine-learning)" project-jdk-type="Python SDK" />
 </project>
