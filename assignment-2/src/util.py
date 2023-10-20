@@ -30,7 +30,7 @@ def translate_label_to_class(label):
     return classes[label]
 
 
-def generate_confusion_matrix(conf_matrix, file_name, y_test, title):
+def generate_confusion_matrix(conf_matrix, file_name, y_test):
 
     # Get unique labels from y_test
     labels = np.unique(y_test)
